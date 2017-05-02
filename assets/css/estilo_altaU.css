@@ -1,0 +1,10 @@
+
+.contenedor{
+    width: 40%;
+    margin: 0 auto;
+    margin-top:80px;
+}
+
+body{
+    background-image: url("../img/noticias.jpg"); 
+}

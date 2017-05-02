@@ -1,0 +1,30 @@
+.contenedor_principal{
+    margin: 0 auto;
+    padding-top: 100px;
+}
+.row,.titulo_principal{
+  display: flex;
+  justify-content: center;
+}
+body{
+    background-image:url("../img/login.jpg");
+}
+h3,.forget_passw a{
+    color: white;
+}
+.image{
+    height: 100px;
+    max-height: 100px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 170px;
+}
+.user_image{
+    background-image: url("../img/User_Circle.png");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-size: 100% 100%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
