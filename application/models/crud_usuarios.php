@@ -48,10 +48,13 @@ Class Crud_usuarios extends CI_MODEL {
 
             if(($query->num_rows() > 0)  && ($query->row()->estado < 3) && ($query->row()->rol == "usuario")){
                 return 1;
+
             }else if(($query->num_rows() > 0)  && ($query->row()->estado < 3) && ($query->row()->rol == "admin")){
                 return 2;
+
             }else if(($query->num_rows() > 0)  && ($query->row()->estado > 2)){
                 return 3;
+
             }else{
                 $this->db->set('estado',$estado + 1)->where('idUsuario',$id_usuario);
                 $this->db->update('usuario');
@@ -63,23 +66,35 @@ Class Crud_usuarios extends CI_MODEL {
         }
     }
 
-    public function obtener_usuario($id_usuario){
+    public function obtener_usuario($usuario){
+        $password = $usuario['password'];
+        $user =  $usuario['usuario'];
 
+        $query ="password = AES_ENCRYPT('$password','$this->llave_aes') and usuario = '$user' ";
+        $usuario = $this->db->select('*')->from('usuario')->where($query)->get();
+        if($usuario->num_rows() > 0){
+            return $usuario->row();
+        }else{
+            return false;
+        }
     }
 
     public function actualizar_usuario($id_usuario){
 
     }
 
-    public function eliminar_usuario($usuarios){
-
+    public function eliminar_usuario($id_usuario){
+        $this->db->delete('usuario',array('idUsuario' => $id_usuario));
+        return true;
     }
 
-    public function obtener_usuarios(){
-
+    public function obtener_usuarios($id_admin){
+        $this->db->where('idUsuario !=',$id_admin);
+        $query = $this->db->get('usuario');
+		if($query->num_rows() > 0){
+			return $query->result();
+		}
     }
-
-
 
 }
 

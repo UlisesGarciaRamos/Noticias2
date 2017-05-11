@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/css/login_style.css');?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome/4.5.0/css/font-awesome.min.css');?>">
         <script type = "text/javascript" src = "<?php echo base_url();?>assets/js/sweetalert.min.js"></script>
-        <script type = "text/javascript" href="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+        <script type = "text/javascript" src = "<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
         <script type = "text/javascript" src = "<?php echo base_url();?>assets/js/jquery.js"></script>
         <script type = "text/javascript">
              $( document ).ready(function () {
@@ -28,7 +28,7 @@
                                     swal({title: "Usuario",text: "Bienvenido al sistema",type: "success"});
                                     window.location.href = dir+"/usuarios/vista_usuario";
                                 }else if(resp.respuesta === "admin"){
-                                    swal({title: "Usuario",text: "Bienvenido al sistema",type: "success"});
+                                    swal({title: "Administrador",text: "Bienvenido al sistema",type: "success"});
                                     window.location.href = dir+"/usuarios/vista_admin";
                                 }else if(resp.respuesta === "error"){
                                     swal({title: "Usuario",text: "Error en la contraseña o cuenta inexistente",type: "warning"});
